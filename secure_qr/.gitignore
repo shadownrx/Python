@@ -1,8 +1,0 @@
-.venv/
-__pycache__/
-*.pyc
-
-# La clave privada y la clave simétrica son secretos: no se suben a git.
-# Se generan localmente con generar_claves.py / qr_cifrado.py.
-keys/private_key.pem
-keys/symmetric_key.bin
