@@ -1,0 +1,45 @@
+[*] Usando claves existentes en keys/
+
+======================================================================
+PASO 1 — Generación del QR original (legítimo)
+======================================================================
+[+] Contenido:      https://sitio-oficial.com
+[+] SHA-256:        cf3113919fcf567e450b03786b5f9ba4a2f62c1e992834fbfe8ae87408ce8dff
+[+] Firma Ed25519:  6NfWxIWmcfhugc/DsZxLJwGUSrIMLb4G...
+[+] QR generado en: output/qr_original.png
+[+] Bytes codificados en el QR (210 caracteres):
+    {"content":"https://sitio-oficial.com","hash":"cf3113919fcf567e450b03786b5f9ba4a2f62c1e992834fbfe8ae87408ce8dff","sig":"6NfWxIWmcfhugc/DsZxLJwGUSrIMLb4G8qvsc+XztLcdHEZ65RGpDJFLdkfpHxqr8Rf22tVtvhQ0N87RyenzAA=="}
+
+======================================================================
+PASO 2 — Verificación del QR original
+======================================================================
+Contenido leído: https://sitio-oficial.com
+✅ AUTÉNTICO — El contenido coincide con su hash y la firma es válida.
+
+======================================================================
+PASO 3 — Ataque: modificación del contenido del QR
+======================================================================
+[!] El atacante reemplaza el contenido:
+    original: https://sitio-oficial.com
+    falso:    https://sitio-falso.com
+[!] El atacante NO puede recalcular una firma válida porque no
+    posee la clave privada. Reutiliza el hash/firma originales.
+[+] QR modificado (malicioso) generado en: output/qr_modificado.png
+
+======================================================================
+PASO 4 — Verificación del QR modificado
+======================================================================
+Contenido leído: https://sitio-falso.com
+❌ ALTERADO / NO AUTÉNTICO — El contenido no coincide con su hash SHA-256 (el texto fue modificado después de generarse el QR).
+
+======================================================================
+RESUMEN
+======================================================================
+QR original   (output/qr_original.png):   AUTÉNTICO
+QR modificado (output/qr_modificado.png): ALTERADO
+
+[✔] La demostración confirma que la firma Ed25519 detecta la alteración del contenido.
+[+] Contenido original:  https://sitio-oficial.com/pago?monto=1000
+[+] Contenido cifrado:   gAAAAABqkKIREMxPY6kv9PAyCbNuKAyeDpn3QNa1aNhChH0IvXj7J3ekdUOVUewTkj2vvMFAoaWyu9auVsfocr3GhREBHe1StzTn0EKALiIiRZfmU9fhtzh15TUcqPcF-fcx9dKAX4vl
+[+] QR cifrado y firmado guardado en: output/qr_cifrado.png
+[+] Clave simétrica guardada en: keys/symmetric_key.bin
